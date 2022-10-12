@@ -22,9 +22,9 @@ div {
 /* 블로그 상단 메뉴바 */
 .black-nav {
   display: flex;
-  background: black;
+  background: #C8DBBE;
   width: 100%;
-  color: white;
+  color: black;
   padding-left: 20px;
 }
 
