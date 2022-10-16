@@ -20,25 +20,28 @@ function App(){
         copy[0] = '여자코트 추천';
         글제목변경(copy);
         }}>버튼</button>
+
         <button onClick={()=>{
         let copy = [...글제목].sort();
         글제목변경(copy);
         }}>정렬</button>
-      <div className="list">
-        <h4>{ 글제목[0] } <span onClick={()=>{따봉변경(따봉+1)}}>👍</span> { 따봉 } </h4>
-        <p>2월 17일 발행</p>
-      </div>
-      <div className="list">
-        <h4>{ 글제목[1] } <span>👍</span> { 따봉 } </h4>
-        <p>2월 17일 발행</p>
-      </div>
-      <div className="list">
-        <h4>{ 글제목[2] } <span>👍</span> { 따봉 } </h4>
-        <p>2월 17일 발행</p>
-      </div>
+
       {
-        modal == true ? <Modal></Modal> : null
+        글제목.map(function(a, i) {
+          return (
+            <div className="list" key={i}>
+              <h4 onClick={()=>{ 따봉변경(따봉+1) }}>{ 글제목[i] } <span>👍</span> { 따봉 }</h4>
+              <p>2월 18일 발행</p>
+            </div>
+          )
+        })
       }
+
+      <button onClick={ ()=>{ setModal(!modal) } }> {글제목[0]} </button>
+      { 
+         modal == true ? <Modal></Modal> : null
+      }
+
     </div>
   )
 }
