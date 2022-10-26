@@ -34,7 +34,7 @@ function App(){
           return (
             <div className="list" key={i}>
               <h4 onClick={()=>{setModal(!modal); setTitle(i)}}>{ 글제목[i] } 
-              <span onClick={()=>{ 따봉변경(따봉+1) }}>👍</span> { 따봉 }</h4>
+              <span onClick={(e)=>{ e.stopPropagation(); 따봉변경(따봉+1) }}>👍</span> { 따봉 }</h4>
               <p>2월 18일 발행</p>
             </div>
           )
@@ -44,6 +44,8 @@ function App(){
       { 
          modal == true ? <Modal title={title} 글제목={글제목}/> : null
       }
+
+      <input onChange={(e)=>{ console.log(e.target.value)}}/>
 
     </div>
   )
